@@ -334,6 +334,127 @@ h1.hero{
 }
 .event .what b{ color: #fff; }
 
+/* ================ showcase ================
+ * Two tilted glass panels holding the dashboard + mod-panel
+ * screenshots. Subtle rotation so they feel like paused memories
+ * on a shelf rather than a product page. */
+.showcase{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 6px;
+}
+@media (max-width: 720px){ .showcase{ grid-template-columns: 1fr; gap: 28px; } }
+
+.shot{
+    position: relative;
+    padding: 10px 10px 44px;
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.35));
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 14px;
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+            backdrop-filter: blur(18px) saturate(150%);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.20),
+        inset 0 -1px 0 rgba(0,0,0,.30),
+        0 20px 40px rgba(0,0,0,.55);
+    transition: transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.shot.tilt-l{ transform: rotate(-1.2deg); }
+.shot.tilt-r{ transform: rotate(1.2deg); }
+.shot:hover{ transform: rotate(0) translateY(-2px); }
+.shot::before{
+    content:'';
+    position:absolute; top:0; left:10%; right:10%; height:1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent);
+    pointer-events:none;
+}
+.shot img{
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow: 0 8px 22px rgba(0,0,0,.5);
+    background: #0a1220;
+}
+.shot figcaption{
+    position: absolute;
+    bottom: 12px; left: 16px; right: 16px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #97a8c8;
+    line-height: 1.5;
+}
+.shot figcaption b{ color: #d8e0f0; font-weight: 700; }
+
+/* ================ logo evolution ================ */
+.logo-panel{
+    display: flex; align-items: center; gap: 16px;
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 14px;
+    -webkit-backdrop-filter: blur(14px);
+            backdrop-filter: blur(14px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.15);
+}
+.logo-slot{ text-align: center; }
+.logo-frame{
+    width: 88px; height: 88px;
+    border-radius: 20px;
+    display: grid; place-items: center;
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.14), transparent 60%),
+        rgba(0,0,0,.55);
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.20), 0 12px 26px rgba(0,0,0,.5);
+    overflow: hidden;
+}
+.logo-frame img{
+    width: 76%; height: 76%;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,.5));
+}
+.logo-frame.v1{
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.20),
+                0 0 22px rgba(150, 120, 220, .35),
+                0 12px 26px rgba(0,0,0,.5);
+}
+.logo-frame.v2{
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.20),
+                0 0 22px rgba(255, 90, 90, .35),
+                0 12px 26px rgba(0,0,0,.5);
+}
+.logo-cap{
+    margin-top: 8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #97a8c8;
+}
+.logo-arrow{
+    font-family:'Cormorant Garamond', serif;
+    font-size: 34px;
+    color: #7d8fb0;
+    line-height: 1;
+    animation: arrowSlide 3s ease-in-out infinite;
+}
+@keyframes arrowSlide{
+    0%,100% { transform: translateX(0); opacity:.8; }
+    50%     { transform: translateX(4px); opacity:1; }
+}
+@media (max-width: 480px){
+    .logo-panel{ gap: 10px; padding: 12px 14px; }
+    .logo-frame{ width: 68px; height: 68px; border-radius: 16px; }
+    .logo-arrow{ font-size: 26px; }
+}
+
 /* ================ what Zenian was ================ */
 .what-was{
     display: grid;
@@ -572,6 +693,26 @@ footer .lockin{
         </div>
     </section>
 
+    <!-- ================ showcase ================
+         The dashboard + moderation panel captures the team shipped
+         while the bot was live. Displayed as tilted glass panes so
+         they read as memories rather than product screenshots. -->
+    <div class="section-head">
+        <h2>The rooms it kept clean</h2>
+        <span class="bar"></span>
+        <span class="kicker">The dashboard &middot; The mod panel</span>
+    </div>
+    <div class="showcase">
+        <figure class="shot tilt-l">
+            <img src="/img/dashboard.png" alt="Zenian owner dashboard">
+            <figcaption>The owner dashboard &middot; live server config, changelog, and command reference.</figcaption>
+        </figure>
+        <figure class="shot tilt-r">
+            <img src="/img/mod-panel.png" alt="Zenian moderation panel">
+            <figcaption>The moderation panel &middot; strikes, applications, staff HR, all in one place.</figcaption>
+        </figure>
+    </div>
+
     <!-- ================ what Zenian was ================ -->
     <div class="section-head">
         <h2>What Zenian Was</h2>
@@ -609,9 +750,33 @@ footer .lockin{
     <div class="section-head">
         <h2>How it went down</h2>
         <span class="bar"></span>
-        <span class="kicker">April &mdash; May 2026</span>
+        <span class="kicker">2024 &rarr; 2026</span>
     </div>
     <div class="timeline">
+        <div class="event logo-event">
+            <div class="when">Late 2024 &middot; Launch</div>
+            <div class="what">
+                <b>Zenian goes live</b> under its first logo &mdash; a rough purple &ldquo;Z&rdquo; sigil, drawn in a night.
+                The first servers come online. The bot is small and eager.
+                <div class="logo-panel">
+                    <div class="logo-slot">
+                        <div class="logo-frame v1"><img src="/img/logo-v1.png" alt="First Zenian logo, 2024"></div>
+                        <div class="logo-cap">v1 &middot; 2024</div>
+                    </div>
+                    <div class="logo-arrow" aria-hidden="true">&rarr;</div>
+                    <div class="logo-slot">
+                        <div class="logo-frame v2"><img src="/img/logo-v2.png" alt="Refined Zenian logo, 2026"></div>
+                        <div class="logo-cap">v2 &middot; 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="event milestone">
+            <div class="when">Through 2025 &middot; Growth</div>
+            <div class="what">
+                The bot spreads across the <b>ER:LC scene</b>. Staff-management, applications, Roblox verification and moderation get built in. The logo is redrawn into the <b>refined red &ldquo;Z&rdquo;</b> we ended on &mdash; sharper, calmer, more grown-up.
+            </div>
+        </div>
         <div class="event">
             <div class="when">Apr 24 &middot; 2026</div>
             <div class="what">First public announcement: <b>hosting provider issues</b>. Something is going wrong upstream and we can't reach our own data.</div>
