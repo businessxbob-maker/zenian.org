@@ -513,6 +513,226 @@ h1.hero{
 }
 .what-item .v b{ color:#fff; }
 
+/* ================ thanks ================
+ * Warm section between the timeline and the sale. golden_hat_
+ * gets a bigger featured card because they're the one who
+ * carried the whole thing after the outage and still answers
+ * questions from the community. */
+.thanks{
+    padding: 30px 30px 26px;
+    background: linear-gradient(180deg,
+                rgba(255,255,255, .04) 0%,
+                rgba(255,255,255, .01) 55%,
+                rgba(0,0,0, .30) 100%);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 20px;
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+            backdrop-filter: blur(20px) saturate(160%);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.20),
+        inset 0 -1px 0 rgba(0,0,0,.30),
+        0 24px 46px rgba(0,0,0,.55);
+    position: relative;
+    overflow: hidden;
+}
+.thanks::before{
+    content:'';
+    position:absolute; top:0; left:10%; right:10%; height:1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent);
+    pointer-events:none;
+}
+.thanks-lede{
+    font-family:'Cormorant Garamond', serif;
+    font-size: 18px;
+    line-height: 1.75;
+    color: #d8e0f0;
+    margin-bottom: 26px;
+}
+.thanks-lede b{ color:#fff; font-weight: 600; }
+
+.people{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+@media (max-width: 640px){ .people{ grid-template-columns: 1fr; } }
+
+.person{
+    position: relative;
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 16px 18px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+.person:hover{
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,.28);
+    background: rgba(255,255,255,.05);
+}
+/* the featured (golden_hat_) card takes the whole width and glows warm */
+.person.featured{
+    grid-column: 1 / -1;
+    padding: 22px 24px;
+    background: linear-gradient(180deg, rgba(255, 210, 130, .08), rgba(0,0,0,.35));
+    border-color: rgba(255, 210, 130, .35);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 235, 180, .35),
+        0 20px 40px rgba(0,0,0,.5),
+        0 0 40px rgba(255, 200, 120, .12);
+}
+.person.featured .person-avatar{
+    background: linear-gradient(180deg, #fff, #ffd58e 55%, #f6b95a);
+    color: #241605;
+    border-color: rgba(255, 220, 160, .9);
+    box-shadow: 0 0 22px rgba(255, 200, 120, .5), inset 0 1px 0 rgba(255,255,255,.9);
+    width: 60px; height: 60px;
+    font-size: 20px;
+}
+.person.featured .person-name{ color:#fff; font-size: 22px; }
+.person.featured .person-role{ color:#ffd58e; }
+.person-avatar{
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: grid; place-items: center;
+    background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.05));
+    border: 1px solid rgba(255,255,255,.20);
+    color: #eaf1ff;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: .06em;
+    flex-shrink: 0;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.30);
+}
+.person-body{ flex: 1; min-width: 0; }
+.person-name{
+    font-family:'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: .02em;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+.person-name .person-link{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .16em;
+    color: #97a8c8;
+    text-transform: uppercase;
+    margin-left: 8px;
+}
+.person-role{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .22em;
+    color: #7d8fb0;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+.person-note{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 13.5px;
+    color: #c5d0e2;
+    line-height: 1.55;
+}
+.person-note b{ color: #fff; }
+.person-note em{ color: #ffe0b8; font-style: italic; }
+.person-badge{
+    position: absolute; top: 14px; right: 14px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: .3em;
+    color: #ffd58e;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(255, 210, 130, .10);
+    border: 1px solid rgba(255, 210, 130, .35);
+    text-transform: uppercase;
+}
+.thanks-out{
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,.10);
+    font-family:'Cormorant Garamond', serif;
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: #c5d0e2;
+    font-style: italic;
+}
+.thanks-out code{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    padding: 1px 6px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 5px;
+    color: #eaf1ff;
+    font-style: normal;
+}
+
+/* ================ feature grid + stats inside sale card ================ */
+.feature-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+    margin: 8px 0 20px;
+}
+@media (max-width: 520px){ .feature-grid{ grid-template-columns: 1fr; } }
+.feature{
+    position: relative;
+    padding: 8px 10px 8px 22px;
+    font-size: 13.5px;
+    color: #d8e0f0;
+    line-height: 1.4;
+}
+.feature::before{
+    content: '';
+    position: absolute; left: 6px; top: 15px;
+    width: 6px; height: 6px;
+    background: #ffd58e;
+    box-shadow: 0 0 8px rgba(255, 200, 120, .6);
+    border-radius: 50%;
+}
+.stats-row{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px 0 20px;
+}
+@media (max-width: 520px){ .stats-row{ grid-template-columns: repeat(2, 1fr); } }
+.statbox{
+    padding: 12px 10px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 12px;
+    text-align: center;
+}
+.statbox b{
+    display: block;
+    font-family:'Anton', sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    letter-spacing: .01em;
+    color: #ffd58e;
+    line-height: 1;
+    text-shadow: 0 0 12px rgba(255, 200, 120, .3);
+}
+.statbox span{
+    display: block;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #97a8c8;
+    margin-top: 6px;
+}
+
 /* ================ for-sale card ================ */
 .sale{
     position: relative;
@@ -840,6 +1060,73 @@ footer .lockin{
         </div>
     </div>
 
+    <!-- ================ thank you ================ -->
+    <div class="section-head">
+        <h2>Thank you</h2>
+        <span class="bar"></span>
+        <span class="kicker">To the people who built &amp; carried this</span>
+    </div>
+    <div class="thanks">
+        <p class="thanks-lede">
+            Zenian was never one person. It was a small group of people who cared way more than they had to, and a community that noticed. To every single one of you &mdash; thank you. For the late-night debugs, for the beta testing, for defending us in the tickets, for staying kind while the walls came down.
+        </p>
+
+        <div class="people">
+            <!-- goldenhat: featured first and biggest, the one who carried the whole thing -->
+            <a class="person featured" href="#" rel="noopener">
+                <div class="person-avatar">GH</div>
+                <div class="person-body">
+                    <div class="person-name">golden_hat_</div>
+                    <div class="person-role">Director &rarr; Shareholder</div>
+                    <div class="person-note">
+                        There from day one. Started as a director, grew into a shareholder, and still answers community questions about the bot to this day &mdash; long after most people would've quietly stepped back. <b>golden_hat_ carried Zenian more times than we can count.</b>
+                    </div>
+                </div>
+                <span class="person-badge">CORE</span>
+            </a>
+
+            <a class="person" href="https://xqnder.xyz" target="_blank" rel="noopener">
+                <div class="person-avatar">XQ</div>
+                <div class="person-body">
+                    <div class="person-name">xqnder <span class="person-link">xqnder.xyz &rarr;</span></div>
+                    <div class="person-role">Co-founder &middot; Engineering</div>
+                    <div class="person-note">Shipped alongside George from the earliest builds. The other half of the "we" in every announcement.</div>
+                </div>
+            </a>
+
+            <a class="person" href="#" rel="noopener">
+                <div class="person-avatar">JW</div>
+                <div class="person-body">
+                    <div class="person-name">George Washingtxn</div>
+                    <div class="person-role">Founder &middot; Product</div>
+                    <div class="person-note">Kept the roadmap, wrote the announcements, took the calls nobody else wanted to take.</div>
+                </div>
+            </a>
+
+            <a class="person" href="#" rel="noopener">
+                <div class="person-avatar">JN</div>
+                <div class="person-body">
+                    <div class="person-name">john00092</div>
+                    <div class="person-role">Head of Operations</div>
+                    <div class="person-note">Wrote the timeline that kept everyone in the loop. <em>&ldquo;We got this guys, lock in.&rdquo;</em></div>
+                </div>
+            </a>
+
+            <a class="person" href="#" rel="noopener">
+                <div class="person-avatar">SH</div>
+                <div class="person-body">
+                    <div class="person-name">shrump03231</div>
+                    <div class="person-role">Team</div>
+                    <div class="person-note">Held things down through the outage and the aftermath. Kept the mood up when there wasn't much to be up about.</div>
+                </div>
+            </a>
+        </div>
+
+        <p class="thanks-out">
+            And to everyone who ever ran <code>/help</code>, wrote us a message, boosted our server, verified a Roblox account, submitted a bug report, filled out an application, or just stuck around while the lights flickered &mdash; you were the point. Always were.
+        </p>
+    </div>
+
     <!-- ================ for-sale ================ -->
     <div class="section-head">
         <h2>The codebase is available</h2>
@@ -852,16 +1139,48 @@ footer .lockin{
         <h3>The full Zenian codebase.</h3>
         <div class="price">$1,000<span class="usd">USD</span></div>
         <p>
-            Two years of Discord-bot engineering. The full source, the schemas, the dashboard, the ER:LC and Roblox integrations, the moderation and staff-management systems, the ticket engine, the leveling and role systems, and the deployment scripts that made it all run. Every command, every config path, every edge case we hit while running fifty communities in production.
+            Two years of Discord-bot engineering. The full source, the schemas, the web dashboard, the ER:LC and Roblox integrations, the moderation and staff-management systems, the ticket engine, the leveling and role systems, the deployment scripts that made it all run. Every command, every config path, every edge case we hit while running roughly <b>70 communities</b> in production.
         </p>
+
+        <p><b>What Zenian actually did:</b></p>
+        <div class="feature-grid">
+            <div class="feature">Roblox verification &amp; group role sync</div>
+            <div class="feature">Ticket system with transcripts, claiming &amp; priority routing</div>
+            <div class="feature">80+ event logging &middot; Advanced auto-mod</div>
+            <div class="feature">Anti-raid protection &middot; Auto-roles</div>
+            <div class="feature">Reaction roles (buttons &amp; dropdowns)</div>
+            <div class="feature">Leveling with leaderboards &amp; role rewards</div>
+            <div class="feature">Welcome / leave messages</div>
+            <div class="feature">Suggestions &amp; bug reports</div>
+            <div class="feature">Giveaways &amp; sticky messages</div>
+            <div class="feature">Invite tracking with bonuses</div>
+            <div class="feature">Cross-server network moderation &amp; blacklists</div>
+            <div class="feature">Role requests &middot; server stats &middot; custom bot profiles</div>
+            <div class="feature">Twitch &amp; YouTube live notifications (per-server)</div>
+            <div class="feature">Private staff voice chat with screen sharing</div>
+            <div class="feature">ER:LC integration (staff, on-duty, radios)</div>
+            <div class="feature">Full web dashboard at zenian.org</div>
+        </div>
+
+        <div class="stats-row">
+            <div class="statbox"><b>235+</b><span>commands</span></div>
+            <div class="statbox"><b>~70</b><span>communities</span></div>
+            <div class="statbox"><b>2 yrs</b><span>in production</span></div>
+            <div class="statbox"><b>24/7</b><span>uptime target</span></div>
+        </div>
+
+        <p><b>Tiers we ran:</b> Free tier &middot; Basic <b>$2.99/mo</b> &middot; Premium <b>$4.99/mo</b> &middot; Lifetime options.</p>
+
         <p><b>What you get with the buy:</b></p>
         <ul>
             <li>Full commercial source access &mdash; the bot, the web dashboard, the backend</li>
-            <li>Schemas, seed data, and a copy of the last working configuration</li>
-            <li>One handover call &mdash; we walk you through the architecture</li>
-            <li>Rights to run it, modify it, ship it under your own brand</li>
+            <li>Schemas, seed data, and a copy of the last working configuration we have</li>
+            <li>Handover call &mdash; we walk you through the architecture, deploy path, and known landmines</li>
+            <li>Rights to run it, modify it, and ship it under your own brand</li>
         </ul>
+
         <p>Serious inquiries only. This is priced at what it cost us to build &mdash; not what the resale market would bear.</p>
+
         <a class="contact" href="mailto:zenian.executive@gmail.com?subject=Zenian%20codebase%20inquiry">
             Enquire by email
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20L20 4M8 4h12v12"/></svg>
